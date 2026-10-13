@@ -55,6 +55,7 @@ export const CuratedHub: React.FC<CuratedHubProps> = ({
         !q ||
         item.title.toLowerCase().includes(q) ||
         item.tagline.toLowerCase().includes(q) ||
+        (item.type && item.type.toLowerCase().includes(q)) ||
         item.category.toLowerCase().includes(q);
       return matchCat && matchSearch;
     });
@@ -75,7 +76,9 @@ export const CuratedHub: React.FC<CuratedHubProps> = ({
       id: `imported-${item.id}-${Date.now().toString(36)}`,
       title: item.title,
       tagline: item.tagline,
-      description: `${item.title}: ${item.tagline}. Direct verified link curated for fast launching.`,
+      description: item.type
+        ? `${item.title} (${item.type}): ${item.tagline}. Direct verified link curated for fast launching.`
+        : `${item.title}: ${item.tagline}. Direct verified link curated for fast launching.`,
       category: catalogCategory,
       url: item.url,
       iconType: 'preset',
@@ -108,7 +111,7 @@ export const CuratedHub: React.FC<CuratedHubProps> = ({
               Curated Web Launchpad
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
-              Explore 100% verified functional links: AI Bots (ChatGPT, Claude), Free Books Libraries, Search Engines, Product Markets (Amazon, Temu), Retro Emulators (PSX), and Dev Sandboxes. Launch directly or add to your local AppGo store with 1 click.
+              Explore 100% verified functional links: AI Bots & Multi-Model Gateways (OpenRouter, Groq, Puter, Bolt.new, Freebuff, LM Studio, Jan, ChatGPT), Free Books Libraries, Search Engines, Product Markets, Retro Emulators, and Dev Sandboxes. Launch directly or add to your local AppGo store with 1 click.
             </p>
           </div>
 
@@ -211,6 +214,12 @@ export const CuratedHub: React.FC<CuratedHubProps> = ({
                       <h3 className="text-sm font-bold text-slate-900 dark:text-white mt-1 group-hover:text-indigo-500 transition-colors">
                         {item.title}
                       </h3>
+                      {item.type && (
+                        <div className="mt-1.5 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-purple-50 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300 border border-purple-200/80 dark:border-purple-800/60 text-[10px] font-medium tracking-tight">
+                          <span className="font-bold text-purple-600 dark:text-purple-400 text-[9px] uppercase tracking-wider">Type</span>
+                          <span className="truncate max-w-[200px]" title={item.type}>{item.type}</span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

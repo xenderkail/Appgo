@@ -5,6 +5,7 @@ export interface CuratedLink {
   category: 'AI Bots' | 'Books & Libraries' | 'Search Engines' | 'Product Markets' | 'Dev & Sandboxes' | 'Emulators & Retro' | 'Media & Utilities';
   url: string;
   icon: string; // Lucide or emoji
+  type?: string;
   badge?: string;
   popular?: boolean;
 }
@@ -23,8 +24,86 @@ export const CURATED_CATEGORIES = [
 export const CURATED_LINKS: CuratedLink[] = [
   // --- AI BOTS & ASSISTANTS ---
   {
+    id: 'ai-openrouter',
+    title: 'OpenRouter',
+    type: 'Multi-Model Playground / Unified API Gateway',
+    tagline: 'Unified API gateway and playground to access and compare 100+ AI models (Claude, GPT-4, DeepSeek, Llama)',
+    category: 'AI Bots',
+    url: 'https://openrouter.ai',
+    icon: 'Layers',
+    badge: 'API Gateway',
+    popular: true,
+  },
+  {
+    id: 'ai-groq',
+    title: 'Groq Cloud',
+    type: 'High-Speed Inference Playground / API Gateway',
+    tagline: 'Ultra-fast LPU inference engine and developer playground running open-source LLMs at real-time speeds',
+    category: 'AI Bots',
+    url: 'https://groq.com',
+    icon: 'Zap',
+    badge: 'LPU Speed',
+    popular: true,
+  },
+  {
+    id: 'ai-puter',
+    title: 'Puter',
+    type: 'Browser-based Cloud OS / Frontend AI SDK',
+    tagline: 'Privacy-first personal cloud desktop OS in browser with built-in client-side AI capabilities and developer SDK',
+    category: 'AI Bots',
+    url: 'https://puter.com',
+    icon: 'Globe',
+    badge: 'Cloud OS',
+    popular: true,
+  },
+  {
+    id: 'ai-bolt-new',
+    title: 'Bolt.new',
+    type: 'Full-Stack Web Application Generator / Live Browser Runtime',
+    tagline: 'In-browser AI web development sandbox that prompts, builds, runs, and deploys full-stack apps in real-time',
+    category: 'AI Bots',
+    url: 'https://bolt.new',
+    icon: 'Sparkles',
+    badge: 'App Gen',
+    popular: true,
+  },
+  {
+    id: 'ai-freebuff',
+    title: 'Freebuff',
+    type: 'Full-Stack Web Application Builder / Coding Agent',
+    tagline: 'Full-stack AI web app builder and multi-agent coding system with built-in database, authentication, and hosting',
+    category: 'AI Bots',
+    url: 'https://freebuff.com',
+    icon: 'Code2',
+    badge: 'Builder Agent',
+    popular: true,
+  },
+  {
+    id: 'ai-lmstudio',
+    title: 'LM Studio',
+    type: 'Local Desktop Application / Offline API Server',
+    tagline: 'Discover, download, and run local open-weights LLMs entirely offline on your Mac, Windows, or Linux desktop',
+    category: 'AI Bots',
+    url: 'https://lmstudio.ai',
+    icon: 'Terminal',
+    badge: 'Local LLM',
+    popular: true,
+  },
+  {
+    id: 'ai-jan',
+    title: 'Jan',
+    type: 'Open-Source Desktop Application / Multi-Provider Hub',
+    tagline: '100% offline, open-source alternative to ChatGPT that runs local models or connects to remote AI providers',
+    category: 'AI Bots',
+    url: 'https://jan.ai',
+    icon: 'Bot',
+    badge: 'Open Source',
+    popular: true,
+  },
+  {
     id: 'ai-chatgpt',
     title: 'ChatGPT',
+    type: 'Conversational LLM / Multi-modal Assistant',
     tagline: 'Conversational AI model for writing, coding, brainstorming, and research by OpenAI',
     category: 'AI Bots',
     url: 'https://chatgpt.com',
@@ -35,6 +114,7 @@ export const CURATED_LINKS: CuratedLink[] = [
   {
     id: 'ai-claude',
     title: 'Claude AI',
+    type: 'Deep Reasoning / Document Analysis Assistant',
     tagline: 'Advanced AI assistant with deep reasoning, coding, and document analysis by Anthropic',
     category: 'AI Bots',
     url: 'https://claude.ai',
@@ -45,6 +125,7 @@ export const CURATED_LINKS: CuratedLink[] = [
   {
     id: 'ai-perplexity',
     title: 'Perplexity AI',
+    type: 'Conversational Search / Research Engine',
     tagline: 'AI-powered conversational search engine with cited real-time web sources',
     category: 'AI Bots',
     url: 'https://www.perplexity.ai',
@@ -55,6 +136,7 @@ export const CURATED_LINKS: CuratedLink[] = [
   {
     id: 'ai-gemini',
     title: 'Google Gemini',
+    type: 'Multimodal AI / Workspace Assistant',
     tagline: 'Multimodal AI assistant with Google Workspace and search integration',
     category: 'AI Bots',
     url: 'https://gemini.google.com',
@@ -65,6 +147,7 @@ export const CURATED_LINKS: CuratedLink[] = [
   {
     id: 'ai-hf-chat',
     title: 'HuggingChat',
+    type: 'Open-Source Model Hub / Chat Client',
     tagline: 'Open-source conversational models (Llama, DeepSeek, Mistral) hosted by Hugging Face',
     category: 'AI Bots',
     url: 'https://huggingface.co/chat',
@@ -74,6 +157,7 @@ export const CURATED_LINKS: CuratedLink[] = [
   {
     id: 'ai-phind',
     title: 'Phind Developer AI',
+    type: 'Developer Search Engine / Code Assistant',
     tagline: 'Intelligent search and coding assistant optimized for software engineers',
     category: 'AI Bots',
     url: 'https://www.phind.com',

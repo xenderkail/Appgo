@@ -13,6 +13,14 @@ export function loadStoredApps(): WebApp[] {
     if (rawV3) {
       const parsed = JSON.parse(rawV3);
       if (Array.isArray(parsed) && parsed.length > 0) {
+        const missingSeeds = INITIAL_APPS.filter(
+          (seed) => !parsed.some((p: WebApp) => p.id === seed.id || p.url.toLowerCase() === seed.url.toLowerCase())
+        );
+        if (missingSeeds.length > 0) {
+          const merged = [...parsed, ...missingSeeds];
+          saveApps(merged);
+          return merged;
+        }
         return parsed;
       }
     }

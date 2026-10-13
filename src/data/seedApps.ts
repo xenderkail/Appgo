@@ -74,6 +74,174 @@ export const INITIAL_APPS: WebApp[] = [
     createdAt: '2026-06-25T09:30:00Z',
     updatedAt: '2026-09-15T12:00:00Z',
   },
+  {
+    id: 'app-openrouter',
+    title: 'OpenRouter AI',
+    tagline: 'Multi-Model Playground / Unified API Gateway',
+    description:
+      'OpenRouter is a unified API gateway and playground that lets you access, benchmark, and switch between 100+ state-of-the-art AI models including Claude 3.5, GPT-4o, DeepSeek, and Llama 3 with automatic failover and competitive pricing.',
+    category: 'AI Tools',
+    url: 'https://openrouter.ai',
+    iconType: 'preset',
+    iconValue: 'Layers',
+    downloadUrl: '',
+    version: 'v1.8.0',
+    changelog: `### v1.8.0 (Latest)
+- Unified prompt playground with side-by-side model comparison
+- Auto-routing and fallback between providers
+- Extended context window and prompt caching support`,
+    tags: ['AI', 'Gateway', 'LLM', 'API', 'Playground', 'MultiModel'],
+    author: 'OpenRouter Inc',
+    rating: 4.9,
+    launches: 3120,
+    isFeatured: true,
+    createdAt: '2026-08-01T10:00:00Z',
+    updatedAt: '2026-10-10T12:00:00Z',
+  },
+  {
+    id: 'app-groq',
+    title: 'Groq Cloud',
+    tagline: 'High-Speed Inference Playground / API Gateway',
+    description:
+      'Groq delivers the world\'s fastest inference speed for open-source AI models using its custom LPU (Language Processing Unit) architecture. Test Llama 3, Mixtral, and Gemma at hundreds of tokens per second.',
+    category: 'AI Tools',
+    url: 'https://groq.com',
+    iconType: 'preset',
+    iconValue: 'Zap',
+    downloadUrl: '',
+    version: 'v2.1.0',
+    changelog: `### v2.1.0 (Latest)
+- Real-time token streaming playground
+- Ultra-low latency API key provisioning
+- Support for latest open weights architectures`,
+    tags: ['AI', 'Inference', 'Fast', 'LPU', 'API', 'LLM'],
+    author: 'Groq Inc',
+    rating: 4.9,
+    launches: 3890,
+    isFeatured: true,
+    createdAt: '2026-07-20T10:00:00Z',
+    updatedAt: '2026-10-08T15:00:00Z',
+  },
+  {
+    id: 'app-puter',
+    title: 'Puter Cloud OS',
+    tagline: 'Browser-based Cloud OS / Frontend AI SDK',
+    description:
+      'Puter is an advanced, privacy-first personal cloud desktop and in-browser operating system. It features a complete desktop environment, file manager, and client-side AI SDK for hosting web applications without backend servers.',
+    category: 'AI Tools',
+    url: 'https://puter.com',
+    iconType: 'preset',
+    iconValue: 'Globe',
+    downloadUrl: '',
+    version: 'v2.0.0',
+    changelog: `### v2.0.0 (Latest)
+- In-browser AI assistant and prompt execution
+- Built-in cloud storage and instant web hosting
+- Developer SDK for serverless frontend apps`,
+    tags: ['CloudOS', 'AI', 'Browser', 'SDK', 'Desktop', 'OperatingSystem'],
+    author: 'Puter Inc',
+    rating: 4.8,
+    launches: 2750,
+    isFeatured: true,
+    createdAt: '2026-06-15T09:00:00Z',
+    updatedAt: '2026-09-30T14:00:00Z',
+  },
+  {
+    id: 'app-bolt-new',
+    title: 'Bolt.new App Generator',
+    tagline: 'Full-Stack Web Application Generator / Live Browser Runtime',
+    description:
+      'Bolt.new is an AI-powered development sandbox that allows you to prompt, design, build, execute, and deploy full-stack Node.js and modern web applications directly inside your browser with real-time WebContainers.',
+    category: 'Developer',
+    url: 'https://bolt.new',
+    iconType: 'preset',
+    iconValue: 'Sparkles',
+    downloadUrl: '',
+    version: 'v3.0.0',
+    changelog: `### v3.0.0 (Latest)
+- Live WebContainer in-browser execution
+- Full-stack package installation and terminal
+- 1-click Netlify and GitHub repository export`,
+    tags: ['AI', 'WebDev', 'FullStack', 'Generator', 'Coding', 'Runtime'],
+    author: 'StackBlitz',
+    rating: 4.9,
+    launches: 4560,
+    isFeatured: true,
+    createdAt: '2026-08-10T10:00:00Z',
+    updatedAt: '2026-10-11T16:00:00Z',
+  },
+  {
+    id: 'app-freebuff',
+    title: 'Freebuff App Builder',
+    tagline: 'Full-Stack Web Application Builder / Coding Agent',
+    description:
+      'Freebuff is an ad-supported, zero-cost AI full-stack application builder and coding agent system. Features specialized multi-agents for planning, context gathering, code generation, database wiring, and deployment without requiring paid subscriptions.',
+    category: 'Developer',
+    url: 'https://freebuff.com',
+    iconType: 'preset',
+    iconValue: 'Code2',
+    downloadUrl: '',
+    version: 'v1.4.0',
+    changelog: `### v1.4.0 (Latest)
+- Multi-agent coordination for planning and building
+- Built-in database, auth, and hosting configurations
+- Cross-platform desktop and web builder interface`,
+    tags: ['AI', 'AppBuilder', 'FullStack', 'CodingAgent', 'Free'],
+    author: 'Freebuff',
+    rating: 4.8,
+    launches: 1980,
+    isFeatured: true,
+    createdAt: '2026-09-01T12:00:00Z',
+    updatedAt: '2026-10-12T11:00:00Z',
+  },
+  {
+    id: 'app-lmstudio',
+    title: 'LM Studio',
+    tagline: 'Local Desktop Application / Offline API Server',
+    description:
+      'LM Studio enables you to discover, download, and run quantized local LLMs (GGUF) completely offline on your computer. Includes a built-in local OpenAI-compatible HTTP server to power private AI workflows.',
+    category: 'AI Tools',
+    url: 'https://lmstudio.ai',
+    iconType: 'preset',
+    iconValue: 'Terminal',
+    downloadUrl: 'https://lmstudio.ai',
+    version: 'v0.3.5',
+    changelog: `### v0.3.5 (Latest)
+- Hardware acceleration for Apple Silicon and NVIDIA CUDA
+- Local OpenAI-compatible API server
+- Hugging Face model hub integration and GGUF quantization`,
+    tags: ['LocalAI', 'Offline', 'GGUF', 'LLM', 'Desktop', 'Privacy'],
+    author: 'LM Studio',
+    rating: 4.9,
+    launches: 4210,
+    isFeatured: true,
+    createdAt: '2026-07-05T10:00:00Z',
+    updatedAt: '2026-10-09T18:00:00Z',
+  },
+  {
+    id: 'app-jan',
+    title: 'Jan AI',
+    tagline: 'Open-Source Desktop Application / Multi-Provider Hub',
+    description:
+      'Jan is a 100% open-source and privacy-focused alternative to ChatGPT that runs on your desktop. Run open models locally using Cortex engine, or configure API keys for external providers in a single unified interface.',
+    category: 'AI Tools',
+    url: 'https://jan.ai',
+    iconType: 'preset',
+    iconValue: 'Bot',
+    downloadUrl: 'https://jan.ai',
+    version: 'v0.5.4',
+    changelog: `### v0.5.4 (Latest)
+- Cortex native inference engine upgrade
+- Multi-provider API routing (OpenAI, Anthropic, Mistral)
+- Local embeddings and retrieval augmented generation (RAG)`,
+    tags: ['OpenSource', 'LocalAI', 'Privacy', 'Desktop', 'Chatbot', 'Hub'],
+    author: 'Jan AI Open Source',
+    rating: 4.8,
+    launches: 3340,
+    isFeatured: true,
+    createdAt: '2026-08-18T10:00:00Z',
+    updatedAt: '2026-10-10T09:00:00Z',
+  },
 
   // --- UTILITIES ---
   {
