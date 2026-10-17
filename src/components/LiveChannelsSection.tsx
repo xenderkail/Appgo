@@ -671,7 +671,7 @@ export const LiveChannelsSection: React.FC = () => {
               href={selectedChannelObj.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white shadow-md transition active:scale-[0.98] shrink-0 ${selectedDirRegionId === 'rated-mature' ? 'bg-amber-600 hover:bg-amber-500 shadow-amber-600/30' : 'bg-red-600 hover:bg-red-500 shadow-red-600/30'}`}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white shadow-md bg-indigo-600 hover:bg-indigo-500 shadow-indigo-600/30 transition active:scale-[0.98] shrink-0"
             >
               <Play className="w-3.5 h-3.5 fill-white" />
               <span>Watch {selectedChannelObj.name}</span>

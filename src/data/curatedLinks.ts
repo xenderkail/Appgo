@@ -2,23 +2,36 @@ export interface CuratedLink {
   id: string;
   title: string;
   tagline: string;
-  category: 'AI Bots' | 'Books & Libraries' | 'Search Engines' | 'Product Markets' | 'Dev & Sandboxes' | 'Emulators & Retro' | 'Media & Utilities';
+  category:
+    | 'AI Bots'
+    | 'Social & Communities'
+    | 'Books & Libraries'
+    | 'Search Engines'
+    | 'Product Markets'
+    | 'Dev & Sandboxes'
+    | 'Emulators & Retro'
+    | 'Media & Utilities'
+    | 'Custom';
   url: string;
   icon: string; // Lucide or emoji
   type?: string;
   badge?: string;
+  brandColor?: string;
+  handle?: string;
   popular?: boolean;
 }
 
 export const CURATED_CATEGORIES = [
   'All',
   'AI Bots',
+  'Social & Communities',
   'Books & Libraries',
   'Search Engines',
   'Product Markets',
   'Dev & Sandboxes',
   'Emulators & Retro',
   'Media & Utilities',
+  'Custom',
 ] as const;
 
 export const CURATED_LINKS: CuratedLink[] = [
@@ -162,6 +175,136 @@ export const CURATED_LINKS: CuratedLink[] = [
     category: 'AI Bots',
     url: 'https://www.phind.com',
     icon: 'Terminal',
+  },
+
+  // --- SOCIAL & COMMUNITIES ---
+  {
+    id: 'soc-x',
+    title: 'X (formerly Twitter)',
+    tagline: 'Real-time breaking news, global conversations, tech discourse, and threads',
+    category: 'Social & Communities',
+    url: 'https://x.com',
+    icon: 'Radio',
+    brandColor: 'from-slate-900 to-black',
+    badge: 'Real-time',
+    handle: '@AppGoHub',
+    popular: true,
+  },
+  {
+    id: 'soc-reddit',
+    title: 'Reddit Community',
+    tagline: 'The front page of the internet with thousands of user-driven topic communities and subreddits',
+    category: 'Social & Communities',
+    url: 'https://www.reddit.com',
+    icon: 'Layers',
+    brandColor: 'from-orange-600 to-red-600',
+    badge: 'Discussions',
+    handle: 'r/webdev',
+    popular: true,
+  },
+  {
+    id: 'soc-discord',
+    title: 'Discord Communities',
+    tagline: 'Real-time voice, video, and text communication servers for developers, gamers, and teams',
+    category: 'Social & Communities',
+    url: 'https://discord.com',
+    icon: 'Gamepad2',
+    brandColor: 'from-indigo-600 to-violet-700',
+    badge: 'Voice & Chat',
+    popular: true,
+  },
+  {
+    id: 'soc-github',
+    title: 'GitHub Dev Hub',
+    tagline: 'The global developer home for code collaboration, open-source repositories, and developer discussions',
+    category: 'Social & Communities',
+    url: 'https://github.com',
+    icon: 'FolderGit2',
+    brandColor: 'from-slate-800 to-zinc-950',
+    badge: 'Open Source',
+    popular: true,
+  },
+  {
+    id: 'soc-youtube',
+    title: 'YouTube Creator Media',
+    tagline: 'World largest video streaming hub, creator broadcasts, tech channels, and educational media',
+    category: 'Social & Communities',
+    url: 'https://www.youtube.com',
+    icon: 'Radio',
+    brandColor: 'from-red-600 to-red-800',
+    badge: 'Streaming',
+    popular: true,
+  },
+  {
+    id: 'soc-linkedin',
+    title: 'LinkedIn Network',
+    tagline: 'Professional networking, industry trends, company profiles, and career opportunities',
+    category: 'Social & Communities',
+    url: 'https://www.linkedin.com',
+    icon: 'Globe',
+    brandColor: 'from-blue-700 to-blue-900',
+    badge: 'Professional',
+  },
+  {
+    id: 'soc-bluesky',
+    title: 'Bluesky Social',
+    tagline: 'Open and decentralized social media network built on the AT Protocol',
+    category: 'Social & Communities',
+    url: 'https://bsky.app',
+    icon: 'Sparkles',
+    brandColor: 'from-sky-500 to-blue-600',
+    badge: 'Decentralized',
+    popular: true,
+  },
+  {
+    id: 'soc-instagram',
+    title: 'Instagram',
+    tagline: 'Visual storytelling, photography portfolios, reels, and creative creator culture',
+    category: 'Social & Communities',
+    url: 'https://www.instagram.com',
+    icon: 'Image',
+    brandColor: 'from-fuchsia-600 to-pink-600',
+    badge: 'Visuals',
+  },
+  {
+    id: 'soc-threads',
+    title: 'Threads',
+    tagline: 'Text-based conversation platform integrated with Instagram and the fediverse',
+    category: 'Social & Communities',
+    url: 'https://www.threads.net',
+    icon: 'Radio',
+    brandColor: 'from-slate-800 to-slate-950',
+  },
+  {
+    id: 'soc-twitch',
+    title: 'Twitch Live Streams',
+    tagline: 'Live interactive streaming for gaming, esports, software development, and creative broadcasts',
+    category: 'Social & Communities',
+    url: 'https://www.twitch.tv',
+    icon: 'Gamepad2',
+    brandColor: 'from-purple-600 to-indigo-700',
+    badge: 'Live',
+  },
+  {
+    id: 'soc-devto',
+    title: 'DEV Community',
+    tagline: 'Constructive and inclusive social network for software developers to share articles and code',
+    category: 'Social & Communities',
+    url: 'https://dev.to',
+    icon: 'Code2',
+    brandColor: 'from-zinc-900 to-black',
+    badge: 'Articles',
+  },
+  {
+    id: 'soc-hackernews',
+    title: 'Hacker News (Y Combinator)',
+    tagline: 'Curated developer discussions, startup launches, technology journalism, and computer science',
+    category: 'Social & Communities',
+    url: 'https://news.ycombinator.com',
+    icon: 'Zap',
+    brandColor: 'from-orange-500 to-amber-600',
+    badge: 'YC Tech',
+    popular: true,
   },
 
   // --- BOOKS & LIBRARIES ---

@@ -1,4 +1,4 @@
-export type NavTab = 'home' | 'store' | 'curated' | 'social';
+export type NavTab = 'home' | 'store' | 'hub' | 'curated' | 'social';
 
 export type AppCategory =
   | 'All'
@@ -142,4 +142,30 @@ export interface SocialPlatform {
   badge?: string;
   isCustom?: boolean;
 }
+
+export interface BrowserTab {
+  id: string;
+  title: string;
+  url: string;
+  icon?: string;
+  isSpeedDial?: boolean;
+  isLoading?: boolean;
+  history: string[];
+  historyIndex: number;
+}
+
+export interface SpeedDialItem {
+  id: string;
+  title: string;
+  url: string;
+  icon?: string;
+  category: 'ai' | 'social' | 'entertainment' | 'dev' | 'tools' | 'custom';
+  color?: string;
+  tagline?: string;
+  type?: string;
+  badge?: string;
+  isCustom?: boolean;
+}
+
+export type SidebarPanelType = 'none' | 'aria' | 'social' | 'player' | 'bookmarks' | 'history' | 'settings';
 

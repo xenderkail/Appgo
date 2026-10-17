@@ -28,10 +28,9 @@ import { DataBackupModal } from './components/DataBackupModal';
 import { DeleteConfirmModal } from './components/DeleteConfirmModal';
 import { EmptyState } from './components/EmptyState';
 import { ToastContainer } from './components/Toast';
-import { CuratedHub } from './components/CuratedHub';
 import { DiagnosticModal } from './components/DiagnosticModal';
 import { HomeTab } from './components/HomeTab';
-import { SocialTab } from './components/SocialTab';
+import { LaunchpadSocialHub } from './components/LaunchpadSocialHub';
 import { AdSenseBanner } from './components/AdSenseBanner';
 
 const ALL_CATEGORIES: AppCategory[] = [
@@ -343,7 +342,7 @@ export default function App() {
             <HomeTab
               apps={apps}
               onNavigateToStore={() => setActiveMainTab('store')}
-              onNavigateToLaunchpad={() => setActiveMainTab('curated')}
+              onNavigateToLaunchpad={() => setActiveMainTab('hub')}
               onLaunchApp={handleLaunch}
               onOpenAppDetails={(a) => setDetailsApp(a)}
               featuredApp={featuredApp}
@@ -476,24 +475,20 @@ export default function App() {
           </>
         )}
 
-        {/* TAB 3: WEB LAUNCHPAD (AI Bots, Books, Search, Markets, Emulators) */}
-        {activeMainTab === 'curated' && (
+        {/* TAB 3: UNIFIED LAUNCHPAD & SOCIAL (AI Bots, Communities, Sandboxes, Media) */}
+        {(activeMainTab === 'hub' || activeMainTab === 'curated' || activeMainTab === 'social') && (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-16">
-            <CuratedHub
+            <LaunchpadSocialHub
               onAddAppToCatalog={handleAddCuratedApp}
               existingAppUrls={apps.map((a) => a.url)}
+              onOpenInBrowser={(url) => {
+                window.open(url, '_blank', 'noopener,noreferrer');
+              }}
             />
           </div>
         )}
 
-        {/* TAB 4: SOCIAL MEDIA (Mainstream, Dev, Communities, Streaming, Custom CRUD) */}
-        {activeMainTab === 'social' && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-16">
-            <SocialTab />
-          </div>
-        )}
-
-        {/* Global Google AdSense placement across Store, Launchpad, and Social tabs */}
+        {/* Global Google AdSense placement across Store and Launchpad & Social tabs */}
         {activeMainTab !== 'home' && (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
             <AdSenseBanner slotId="appgo-footer-leaderboard" />
@@ -507,36 +502,33 @@ export default function App() {
           <div className="flex items-center gap-2">
             <span className="font-bold text-slate-800 dark:text-slate-200">AppGo</span>
             <span>•</span>
-            <span>Unified Web Portal & Application Store</span>
+            <span>AppGo Browser & Web Application Hub</span>
           </div>
 
           <div className="flex items-center gap-4 flex-wrap justify-center">
             <button
               onClick={() => setActiveMainTab('home')}
-              className={`transition font-semibold ${activeMainTab === 'home' ? 'text-indigo-600 dark:text-indigo-400' : 'hover:text-indigo-600'}`}
+              className={`transition font-semibold ${
+                activeMainTab === 'home'
+                  ? 'text-indigo-600 dark:text-indigo-400 font-bold'
+                  : 'hover:text-indigo-600 dark:hover:text-indigo-400'
+              }`}
             >
-              Home
+              AppGo Browser
             </button>
             <span>•</span>
             <button
               onClick={() => setActiveMainTab('store')}
-              className={`transition font-semibold ${activeMainTab === 'store' ? 'text-indigo-600 dark:text-indigo-400' : 'hover:text-indigo-600'}`}
+              className={`transition font-semibold ${activeMainTab === 'store' ? 'text-indigo-600 dark:text-indigo-400 font-bold' : 'hover:text-indigo-600'}`}
             >
               App Store
             </button>
             <span>•</span>
             <button
-              onClick={() => setActiveMainTab('curated')}
-              className={`transition font-semibold ${activeMainTab === 'curated' ? 'text-indigo-600 dark:text-indigo-400' : 'hover:text-indigo-600'}`}
+              onClick={() => setActiveMainTab('hub')}
+              className={`transition font-semibold ${activeMainTab === 'hub' || activeMainTab === 'curated' || activeMainTab === 'social' ? 'text-indigo-600 dark:text-indigo-400 font-bold' : 'hover:text-indigo-600'}`}
             >
-              Web Launchpad
-            </button>
-            <span>•</span>
-            <button
-              onClick={() => setActiveMainTab('social')}
-              className={`transition font-semibold ${activeMainTab === 'social' ? 'text-indigo-600 dark:text-indigo-400' : 'hover:text-indigo-600'}`}
-            >
-              Social Media
+              Launchpad & Social
             </button>
             <span>•</span>
             <button

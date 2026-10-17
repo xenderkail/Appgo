@@ -16,6 +16,7 @@ import {
   LayoutGrid,
   Home,
   Share2,
+  Globe,
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -106,7 +107,7 @@ export const Header: React.FC<HeaderProps> = ({
               </div>
             </a>
 
-            {/* Desktop 4-Tab Navigation Bar */}
+            {/* Desktop 3-Tab Navigation Bar */}
             <nav className="hidden lg:flex items-center p-1 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-xs">
               <button
                 onClick={() => onSelectMainTab('home')}
@@ -116,8 +117,8 @@ export const Header: React.FC<HeaderProps> = ({
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
                 }`}
               >
-                <Home className="w-3.5 h-3.5" />
-                <span>Home</span>
+                <Globe className="w-3.5 h-3.5" />
+                <span>AppGo Browser</span>
               </button>
 
               <button
@@ -130,33 +131,21 @@ export const Header: React.FC<HeaderProps> = ({
               >
                 <LayoutGrid className="w-3.5 h-3.5" />
                 <span>App Store</span>
-                <span className="text-[10px] px-1 py-0.2 rounded-full bg-slate-200 dark:bg-slate-600 font-mono">
+                <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-slate-200 dark:bg-slate-600 font-mono">
                   {totalApps}
                 </span>
               </button>
 
               <button
-                onClick={() => onSelectMainTab('curated')}
+                onClick={() => onSelectMainTab('hub')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold transition ${
-                  activeMainTab === 'curated'
+                  activeMainTab === 'hub' || activeMainTab === 'curated' || activeMainTab === 'social'
                     ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-400 shadow-xs'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
                 }`}
               >
                 <Compass className="w-3.5 h-3.5" />
-                <span>Web Launchpad</span>
-              </button>
-
-              <button
-                onClick={() => onSelectMainTab('social')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold transition ${
-                  activeMainTab === 'social'
-                    ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-400 shadow-xs'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
-                }`}
-              >
-                <Share2 className="w-3.5 h-3.5" />
-                <span>Social Media</span>
+                <span>Launchpad & Social</span>
               </button>
             </nav>
           </div>
@@ -278,14 +267,14 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex items-center p-1 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/80 text-xs w-full">
             <button
               onClick={() => onSelectMainTab('home')}
-              className={`flex-1 flex items-center justify-center gap-1 py-1.5 px-2 rounded-lg font-bold transition whitespace-nowrap ${
+              className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg font-bold transition whitespace-nowrap ${
                 activeMainTab === 'home'
                   ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-400 shadow-xs'
                   : 'text-slate-600 dark:text-slate-400'
               }`}
             >
-              <Home className="w-3.5 h-3.5" />
-              <span>Home</span>
+              <Globe className="w-3.5 h-3.5" />
+              <span>Browser</span>
             </button>
 
             <button
@@ -301,27 +290,15 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
 
             <button
-              onClick={() => onSelectMainTab('curated')}
+              onClick={() => onSelectMainTab('hub')}
               className={`flex-1 flex items-center justify-center gap-1 py-1.5 px-2 rounded-lg font-bold transition whitespace-nowrap ${
-                activeMainTab === 'curated'
+                activeMainTab === 'hub' || activeMainTab === 'curated' || activeMainTab === 'social'
                   ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-400 shadow-xs'
                   : 'text-slate-600 dark:text-slate-400'
               }`}
             >
               <Compass className="w-3.5 h-3.5" />
-              <span>Launchpad</span>
-            </button>
-
-            <button
-              onClick={() => onSelectMainTab('social')}
-              className={`flex-1 flex items-center justify-center gap-1 py-1.5 px-2 rounded-lg font-bold transition whitespace-nowrap ${
-                activeMainTab === 'social'
-                  ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-400 shadow-xs'
-                  : 'text-slate-600 dark:text-slate-400'
-              }`}
-            >
-              <Share2 className="w-3.5 h-3.5" />
-              <span>Social</span>
+              <span>Launchpad & Social</span>
             </button>
           </div>
         </div>
