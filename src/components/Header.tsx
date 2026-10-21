@@ -17,6 +17,7 @@ import {
   Home,
   Share2,
   Globe,
+  Sparkles,
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -119,6 +120,18 @@ export const Header: React.FC<HeaderProps> = ({
               >
                 <Globe className="w-3.5 h-3.5" />
                 <span>AppGo Browser</span>
+              </button>
+
+              <button
+                onClick={() => onSelectMainTab('shortcuts')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold transition ${
+                  activeMainTab === 'shortcuts'
+                    ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-400 shadow-xs'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                }`}
+              >
+                <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                <span>Shortcuts</span>
               </button>
 
               <button
@@ -275,6 +288,18 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <Globe className="w-3.5 h-3.5" />
               <span>Browser</span>
+            </button>
+
+            <button
+              onClick={() => onSelectMainTab('shortcuts')}
+              className={`flex-1 flex items-center justify-center gap-1 py-1.5 px-2 rounded-lg font-bold transition whitespace-nowrap ${
+                activeMainTab === 'shortcuts'
+                  ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-400 shadow-xs'
+                  : 'text-slate-600 dark:text-slate-400'
+              }`}
+            >
+              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+              <span>Shortcuts</span>
             </button>
 
             <button

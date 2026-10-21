@@ -1,4 +1,4 @@
-export type NavTab = 'home' | 'store' | 'hub' | 'curated' | 'social';
+export type NavTab = 'home' | 'shortcuts' | 'store' | 'hub' | 'curated' | 'social';
 
 export type AppCategory =
   | 'All'
@@ -159,7 +159,7 @@ export interface SpeedDialItem {
   title: string;
   url: string;
   icon?: string;
-  category: 'ai' | 'social' | 'entertainment' | 'dev' | 'tools' | 'custom';
+  category: 'ai' | 'social' | 'entertainment' | 'dev' | 'tools' | 'custom' | 'news' | 'pinned';
   color?: string;
   tagline?: string;
   type?: string;

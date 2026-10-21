@@ -336,11 +336,12 @@ export default function App() {
 
       {/* Main Content Area: 4 Primary Tabs */}
       <main className="flex-1">
-        {/* TAB 1: HOME (Yahoo / YouTube Portal Style) */}
-        {activeMainTab === 'home' && (
+        {/* TAB 1 & SHORTCUTS: APPG0 BROWSER & SHORTCUTS */}
+        {(activeMainTab === 'home' || activeMainTab === 'shortcuts') && (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <HomeTab
               apps={apps}
+              initialView={activeMainTab === 'shortcuts' ? 'shortcuts' : 'browser'}
               onNavigateToStore={() => setActiveMainTab('store')}
               onNavigateToLaunchpad={() => setActiveMainTab('hub')}
               onLaunchApp={handleLaunch}

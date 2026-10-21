@@ -536,39 +536,43 @@ export const LiveChannelsSection: React.FC = () => {
         </div>
       </div>
 
-      {/* --- COMPACT SEARCH / DIRECTORY BAR WITH ALL REGIONS, INTERNET & RATED CONTENTS --- */}
-      <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-850 to-indigo-950 border border-indigo-500/30 text-white shadow-xl space-y-4">
-        <div className="flex items-center justify-between gap-2 flex-wrap">
+      {/* --- LEAN & SMART GLOBAL CHANNEL QUICK SEARCH BAR --- */}
+      <div className="p-3 sm:p-4 rounded-2xl bg-slate-900/90 border border-indigo-500/30 text-white shadow-xl space-y-3">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
           <div className="flex items-center gap-2">
-            <div className={`w-8 h-8 rounded-xl flex items-center justify-center border ${selectedDirRegionId === 'rated-mature' ? 'bg-amber-500/20 border-amber-500/40 text-amber-400' : 'bg-red-600/20 border-red-500/40 text-red-400'}`}>
-              {selectedDirRegionId === 'rated-mature' ? <ShieldAlert className="w-4 h-4" /> : <Youtube className="w-4 h-4" />}
+            <div className="w-7 h-7 rounded-lg bg-indigo-600/20 border border-indigo-500/40 text-indigo-400 flex items-center justify-center shrink-0">
+              <Tv className="w-3.5 h-3.5" />
             </div>
             <div>
-              <h3 className="text-sm font-bold tracking-tight text-white flex items-center gap-2">
-                <span>Global Channel Quick Search Bar</span>
-                {selectedDirRegionId === 'rated-mature' ? (
-                  <span className="text-[10px] font-bold px-2 py-0.2 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                    18+ Mature & Rated Contents
-                  </span>
-                ) : (
-                  <span className="text-[10px] font-bold px-2 py-0.2 rounded-full bg-red-500/20 text-red-300 border border-red-500/30">
-                    Top 20 Worldwide Internet Channels
-                  </span>
-                )}
+              <h3 className="text-xs sm:text-sm font-bold tracking-tight text-white flex items-center gap-2">
+                <span>Global Live Channel Quick Bar</span>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                  {COMPACT_GLOBAL_DIRECTORY.reduce((acc, r) => acc + r.countries.reduce((cAcc, c) => cAcc + c.channels.length, 0), 0)}+ Live Streams
+                </span>
               </h3>
-              <p className="text-[11px] text-slate-300">
-                {selectedDirRegionId === 'rated-mature' ? 'Restricted access: Uncensored thriller, cult classics & midnight movie vaults.' : 'Select All Regions, Internet country, or Rated Contents for mature titles.'}
-              </p>
             </div>
           </div>
+
+          {selectedChannelObj && (
+            <a
+              href={selectedChannelObj.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold text-white shadow-md bg-indigo-600 hover:bg-indigo-500 shadow-indigo-600/30 transition active:scale-[0.98] shrink-0 self-start sm:self-auto"
+            >
+              <Play className="w-3 h-3 fill-white" />
+              <span>Watch {selectedChannelObj.name}</span>
+              <ExternalLink className="w-3 h-3 ml-0.5" />
+            </a>
+          )}
         </div>
 
-        {/* 3 Cascading Selectors in Search Bar layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
+        {/* Lean cascading selectors */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
           {/* 1. Region Dropdown */}
           <div>
-            <label className="block text-[10px] font-bold uppercase tracking-wider text-indigo-300 mb-1">
-              1. Region / Category
+            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+              Region
             </label>
             <select
               value={selectedDirRegionId}
@@ -584,7 +588,7 @@ export const LiveChannelsSection: React.FC = () => {
                   }
                 }
               }}
-              className="w-full px-3 py-2 text-xs rounded-xl bg-slate-900 border border-slate-700 text-white font-semibold focus:outline-none focus:border-indigo-400"
+              className="w-full px-2.5 py-1.5 text-xs rounded-xl bg-slate-950 border border-slate-700 text-slate-200 font-semibold focus:outline-none focus:border-indigo-400"
             >
               {COMPACT_GLOBAL_DIRECTORY.map((reg) => (
                 <option key={reg.regionId} value={reg.regionId}>
@@ -594,10 +598,10 @@ export const LiveChannelsSection: React.FC = () => {
             </select>
           </div>
 
-          {/* 2. Country Dropdown */}
+          {/* 2. Country / Subcategory Dropdown */}
           <div>
-            <label className="block text-[10px] font-bold uppercase tracking-wider text-indigo-300 mb-1">
-              2. Subcategory ({currentCountries.length} available)
+            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+              Country ({currentCountries.length})
             </label>
             <select
               value={selectedDirCountry}
@@ -609,7 +613,7 @@ export const LiveChannelsSection: React.FC = () => {
                   setSelectedDirChannelId(cGrp.channels[0].id);
                 }
               }}
-              className="w-full px-3 py-2 text-xs rounded-xl bg-slate-900 border border-slate-700 text-white font-semibold focus:outline-none focus:border-indigo-400"
+              className="w-full px-2.5 py-1.5 text-xs rounded-xl bg-slate-950 border border-slate-700 text-slate-200 font-semibold focus:outline-none focus:border-indigo-400"
             >
               {currentCountries.map((cGroup) => (
                 <option key={cGroup.country} value={cGroup.country}>
@@ -619,15 +623,15 @@ export const LiveChannelsSection: React.FC = () => {
             </select>
           </div>
 
-          {/* 3. Channel Dropdown */}
+          {/* 3. Channels Dropdown */}
           <div>
-            <label className="block text-[10px] font-bold uppercase tracking-wider text-indigo-300 mb-1">
-              3. Channel ({currentCountryChannels.length} channels)
+            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+              Channel ({currentCountryChannels.length})
             </label>
             <select
               value={selectedDirChannelId}
               onChange={(e) => setSelectedDirChannelId(e.target.value)}
-              className="w-full px-3 py-2 text-xs rounded-xl bg-slate-900 border border-slate-700 text-white font-semibold focus:outline-none focus:border-indigo-400"
+              className="w-full px-2.5 py-1.5 text-xs rounded-xl bg-slate-950 border border-slate-700 text-slate-200 font-semibold focus:outline-none focus:border-indigo-400"
             >
               {currentCountryChannels.map((ch) => (
                 <option key={ch.id} value={ch.id}>
@@ -638,59 +642,31 @@ export const LiveChannelsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Selected Channel Preview & Watch Button */}
+        {/* Selected Channel Inline Preview Bar */}
         {selectedChannelObj && (
-          <div className="pt-3 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-slate-900/80 p-3 rounded-xl border border-slate-700/60">
-            <div className="flex items-center gap-3">
-              <img
-                src={selectedChannelObj.logo}
-                alt={selectedChannelObj.name}
-                className="w-11 h-11 rounded-xl object-cover border border-slate-700 shrink-0"
-              />
-              <div>
-                <div className="flex items-center gap-2 flex-wrap">
-                  <h4 className="text-xs sm:text-sm font-bold text-white">
-                    {selectedChannelObj.name}
-                  </h4>
-                  {selectedChannelObj.badge && (
-                    <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded border ${selectedDirRegionId === 'rated-mature' ? 'bg-amber-500/20 text-amber-300 border-amber-500/30' : 'bg-red-500/20 text-red-300 border-red-500/30'}`}>
-                      {selectedChannelObj.badge}
-                    </span>
-                  )}
-                  <span className="text-[10px] text-slate-400">
-                    {currentCountryGroup?.flag} {currentCountryGroup?.country}
-                  </span>
-                </div>
-                <p className="text-[11px] text-slate-300 line-clamp-1 mt-0.5">
-                  {selectedChannelObj.tagline}
-                </p>
-              </div>
+          <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-xs text-slate-300">
+            <div className="flex items-center gap-2 truncate">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+              <span className="font-bold text-white truncate">{selectedChannelObj.name}</span>
+              <span className="text-slate-400 text-[11px] truncate">· {selectedChannelObj.tagline}</span>
             </div>
-
-            <a
-              href={selectedChannelObj.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white shadow-md bg-indigo-600 hover:bg-indigo-500 shadow-indigo-600/30 transition active:scale-[0.98] shrink-0"
-            >
-              <Play className="w-3.5 h-3.5 fill-white" />
-              <span>Watch {selectedChannelObj.name}</span>
-              <ExternalLink className="w-3 h-3 ml-0.5" />
-            </a>
+            <span className="text-[10px] text-indigo-400 uppercase font-mono tracking-wider shrink-0 ml-2">
+              {currentCountryGroup?.flag} {selectedChannelObj.badge}
+            </span>
           </div>
         )}
       </div>
 
-      {/* Category Filter Chips */}
-      <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none">
+      {/* Category Filter Chips - Smart, Lean & Reduced Size */}
+      <div className="flex items-center gap-1 overflow-x-auto pb-1 scrollbar-none text-[11px]">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition ${
+            className={`px-2.5 py-1 rounded-lg font-semibold whitespace-nowrap transition ${
               activeCategory === cat
-                ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-sm'
-                : 'bg-white dark:bg-slate-850 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700/80 hover:bg-slate-50 dark:hover:bg-slate-800'
+                ? 'bg-indigo-600 text-white shadow-xs'
+                : 'bg-slate-900 text-slate-400 border border-slate-800 hover:text-white hover:bg-slate-800'
             }`}
           >
             {cat}
